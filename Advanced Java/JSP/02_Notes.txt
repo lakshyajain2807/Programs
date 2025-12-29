@@ -1,0 +1,38 @@
+app
+
+• servlet = controllor logic - handle requests, calls JDBC, forward to JSP.
+• JSP = view/present - display data, minimal or no business logic.
+• JDBC = DB Connectivity - APIs for database operations used by servlets
+
+JSP are mainly for display.
+Servlet are mainly for business logic.
+JDBC is never used directly by JSP - it is always the servlet.
+This Seperation ensures clean, maintainable,modular web applications in java.
+
+JSP Elements and system:
+a) Expresion - output value to page -> <%= expression %>
+Example:
+Hello! The time is now<%=newJava.Util.Date()%>
+b) Scriptlet - insert java code block -> <% java code %>
+Example:
+<%
+    String name = "John Doe";
+    out.println("Hello," + name);
+
+%>
+c) Declaration - declare variables and methods -> <%! type name; %> or <% !method(){...}%>
+Example:
+<%!
+Date theDate = new Date();
+Date getDate(){
+    return theDate;
+}
+%>
+Hello! the time is now<% = getDate()"%>
+d) Directive - provide instructions to the JSP engine -> <%@ directive %>
+Example:
+Imports a java package
+<%@ page imports = "java.util.*"%>
+-> makes java.util classes avaible in JSP.
+
+
